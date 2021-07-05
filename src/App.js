@@ -1,11 +1,12 @@
 
 import './App.css';
+import Home from "../src/modules/home/Home"
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello Attend Link</h1>
-    </div>
+    <>
+    <Home />
+    </>
   );
 }
 

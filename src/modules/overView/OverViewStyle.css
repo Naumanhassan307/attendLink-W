@@ -1,0 +1,55 @@
+.head-div{
+    
+    width: 92%;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.801);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.801);
+    color: ivory;
+    font-size: 24px;
+    border-radius: 20px;
+
+}
+.main-div{
+    
+    width: 95%;
+    height: auto;
+    margin-top: 50px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.child{
+    width: 23%;
+    height: 300px;
+    margin: 10px;
+    /* border: 1px solid green; */
+    border-radius: 21px;
+}
+.child-one{
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.801);
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.801);
+    color: ivory;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    /* border-radius: 20px ; */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.child-two{
+    padding: 10px;
+    margin: 20%;
+     /* border: 1px solid red; */
+}
