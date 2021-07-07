@@ -23,6 +23,7 @@ import DeleteSweepOutlinedIcon from "@material-ui/icons/DeleteSweepOutlined";
 import AssignmentTurnedInOutlinedIcon from "@material-ui/icons/AssignmentTurnedInOutlined";
 import PowerSettingsNewOutlinedIcon from "@material-ui/icons/PowerSettingsNewOutlined";
 import OverView from "../overView/OverView";
+import AddTeacher from "../addTeacher/AddTeacher"
 
 
 
@@ -205,6 +206,7 @@ export default function Home() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {/* <OverView /> */}
+        <AddTeacher />
          
       </main>
       

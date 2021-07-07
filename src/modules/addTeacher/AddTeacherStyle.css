@@ -1,0 +1,52 @@
+.head-div{
+    
+    width: 92%;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.801);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.801);
+    color: ivory;
+    font-size: 24px;
+    border-radius: 20px;
+
+}
+
+.my-outer-class{
+    width: 92%;
+    height: auto;
+    margin-top: 70px;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: 1px solid green !important; */
+    align-items: center;
+    justify-content: center;
+
+}
+.my-inner-class{
+    margin: 20px;
+}
+.my-inner-btn{
+    display: flex;
+    /* border: 1px solid green !important; */
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-right: 100px;
+    margin-top: 50px;
+}
+.my-inner-qrbtn{
+    display: flex;
+    /* border: 1px solid green !important; */
+    align-items: center;
+    justify-content: center;
+    margin-right: 100px;
+    margin-top: 50px;
+}
