@@ -16,18 +16,19 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
-
 import AssessmentOutlinedIcon from "@material-ui/icons/AssessmentOutlined";
 import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
 import DeleteSweepOutlinedIcon from "@material-ui/icons/DeleteSweepOutlined";
 import AssignmentTurnedInOutlinedIcon from "@material-ui/icons/AssignmentTurnedInOutlined";
 import PowerSettingsNewOutlinedIcon from "@material-ui/icons/PowerSettingsNewOutlined";
+
+import {  Link, NavLink} from "react-router-dom";
+
+import Navigation from "../../config/navigation/Navigation";
+
+
+import AddTeacher from "../addTeacher/AddTeacher";
 import OverView from "../overView/OverView";
-import AddTeacher from "../addTeacher/AddTeacher"
-
-
-
-
 
 const drawerWidth = 240;
 
@@ -92,7 +93,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
- 
 }));
 
 export default function Home() {
@@ -129,9 +129,8 @@ export default function Home() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap  >
+          <Typography variant="h6" noWrap>
             Attend Link
-            
           </Typography>
         </Toolbar>
       </AppBar>
@@ -150,7 +149,7 @@ export default function Home() {
       >
         <div className={classes.toolbar}>
           <Typography variant="h6" noWrap>
-            Admin Area &nbsp; &nbsp; &nbsp; 
+            Admin Area &nbsp; &nbsp; &nbsp;
           </Typography>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -161,41 +160,64 @@ export default function Home() {
           </IconButton>
         </div>
         <Divider />
+
         <List>
-          {[
-            "Today Overview",
-            "Add Teacher",
-            "Delete/Update",
-            "Check Attendance",
-          ].map((text, index) => (
-            <ListItem button key={text}>
+          <NavLink activeClassName="active_class" className="mu" exact to="/">
+            <ListItem button key="Today Overview">
               <ListItemIcon>
-                {index === 0 ? (
-                  <AssessmentOutlinedIcon />
-                ) : index === 1 ? (
-                  <PersonAddOutlinedIcon />
-                ) : index === 2 ? (
-                  <DeleteSweepOutlinedIcon />
-                ) : (
-                  <AssignmentTurnedInOutlinedIcon />
-                )}
+                <AssessmentOutlinedIcon />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary="Today Overview"  />
               <br />
               <br />
               <br />
-              
             </ListItem>
-          ))}
+          </NavLink>
+
+          <NavLink activeClassName="active_class" className="mu" exact to="/addteacher">
+            <ListItem button key="Add Teacher">
+              <ListItemIcon>
+                <PersonAddOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Teacher" style={{textDecoration: "none"}} />
+              <br />
+              <br />
+              <br />
+            </ListItem>
+          </NavLink>
+
+          <NavLink activeClassName="active_class" className="mu" exact to="/updaterecord">
+            <ListItem button key="Delete/Update">
+              <ListItemIcon>
+                <DeleteSweepOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Delete/Update" style={{textDecoration: "none"}}/>
+              <br />
+              <br />
+              <br />
+            </ListItem>
+          </NavLink>
+
+          <NavLink activeClassName="active_class" className="mu" exact to="/chechkrecord">
+            <ListItem button key="Check Attendance">
+              <ListItemIcon>
+                <AssignmentTurnedInOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Check Attendance" style={{textDecoration: "none"}} />
+              <br />
+              <br />
+              <br />
+            </ListItem>
+          </NavLink>
         </List>
+
         <Divider />
         <List>
           <ListItem button key="Logout">
             <br />
             <br />
             <br />
-           
-            
+
             <ListItemIcon>
               <PowerSettingsNewOutlinedIcon />
             </ListItemIcon>
@@ -205,11 +227,14 @@ export default function Home() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        {/* <OverView /> */}
-        <AddTeacher />
-         
+
+        <Navigation />
       </main>
-      
     </div>
   );
 }
+
+
+
+
+
