@@ -9,8 +9,10 @@ const initialState ={
 function TeacherReducer(state = initialState, action){
     switch (action.type) {
       case ADD_TEACHER:{
-          console.log("Reducer running...");
+          console.log("Teacher in Reducer", action.payload);
           return{
+              ...state,
+              teachers: [...state.teachers, action.payload]
 
           }
       }

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Departments() {
+export default function Departments({ setTchDepart }) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     department: "",
@@ -28,6 +28,7 @@ export default function Departments() {
       ...state,
       [name]: event.target.value,
     });
+    setTchDepart(event.target.value);
   };
 
   return (
@@ -49,7 +50,6 @@ export default function Departments() {
           <option value="mth">Math</option>
         </Select>
       </FormControl>
-      
     </div>
   );
 }

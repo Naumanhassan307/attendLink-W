@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Gender() {
+export default function Gender({ setTchGender }) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     gender: "",
@@ -27,12 +27,12 @@ export default function Gender() {
       ...state,
       [name]: event.target.value,
     });
+    setTchGender(event.target.value)
   };
 
   return (
     <div>
       <FormControl className={classes.formControl}>
-          
         <InputLabel htmlFor="gender-native-simple">Gender</InputLabel>
         <Select
           native

@@ -13,16 +13,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BlueButton({txt}) {
+export default function BlueButton({ txt, cta }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" onClick={cta} >
         {txt}
       </Button>
-      
     </div>
   );
 }
