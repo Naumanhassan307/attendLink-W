@@ -17,7 +17,7 @@ function Navigation() {
         <Route exact path="/addteacher">
           <AddTeacher />
         </Route>
-        <Route exact path="/updaterecord">
+        <Route exact path="/allrecords">
           <DeleteUpdate />
         </Route>
         <Route exact path="/chechkrecord">

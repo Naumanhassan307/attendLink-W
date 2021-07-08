@@ -27,8 +27,7 @@ import {  Link, NavLink} from "react-router-dom";
 import Navigation from "../../config/navigation/Navigation";
 
 
-import AddTeacher from "../addTeacher/AddTeacher";
-import OverView from "../overView/OverView";
+
 
 const drawerWidth = 240;
 
@@ -186,12 +185,12 @@ export default function Home() {
             </ListItem>
           </NavLink>
 
-          <NavLink activeClassName="active_class" className="mu" exact to="/updaterecord">
-            <ListItem button key="Delete/Update">
+          <NavLink activeClassName="active_class" className="mu" exact to="/allrecords">
+            <ListItem button key="All Records">
               <ListItemIcon>
                 <DeleteSweepOutlinedIcon />
               </ListItemIcon>
-              <ListItemText primary="Delete/Update" style={{textDecoration: "none"}}/>
+              <ListItemText primary="All Records" style={{textDecoration: "none"}}/>
               <br />
               <br />
               <br />

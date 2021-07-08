@@ -16,8 +16,7 @@ function AddTeacher() {
     setTchDepart,
     ctaQrHandler,
     ctaSubmitHander,
-    emptyf,
-    setEmptyf,
+    allow,
   ] = useAddTeacher();
   return (
     <>
@@ -55,9 +54,9 @@ function AddTeacher() {
         </div>
       </div>
 
-      <div className="my-inner-qrbtn">
+      {/* <div className="my-inner-qrbtn">
         <BlueButton txt="QR Code" cta={ctaQrHandler} />
-      </div>
+      </div> */}
 
       <div className="my-inner-btn">
         <BlueButton txt="Submit" cta={ctaSubmitHander} />

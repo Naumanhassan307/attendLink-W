@@ -42,7 +42,7 @@ const useStyles = makeStyles({
 export default function DeleteUpdate() {
   const classes = useStyles();
 
-  const [store, showTable] = useDeleteUpdate();
+  const [store, ctaDownloadHandler] = useDeleteUpdate();
 
   return (
     <TableContainer component={Paper}>
@@ -53,8 +53,9 @@ export default function DeleteUpdate() {
             <StyledTableCell>TEACHER NAME</StyledTableCell>
             <StyledTableCell align="left">FATHER NAME</StyledTableCell>
             <StyledTableCell align="left">DEPARTMENT</StyledTableCell>
-            <StyledTableCell align="center">UPDATE RECORD</StyledTableCell>
-            <StyledTableCell align="center">DPDATE RECORD</StyledTableCell>
+            <StyledTableCell align="center">QR CODE</StyledTableCell>
+            <StyledTableCell align="center">DOWNLOAD</StyledTableCell>
+            <StyledTableCell align="center">DELETE RECORD</StyledTableCell>
           </TableRow>
         </TableHead>
 
@@ -68,8 +69,11 @@ export default function DeleteUpdate() {
 
               <StyledTableCell align="left">{item.fName}</StyledTableCell>
               <StyledTableCell align="left">{item.depart}</StyledTableCell>
-              <StyledTableCell align="right">
-                <BlueButton txt="Update" />
+              <StyledTableCell align="center">
+                <img src={item.code} style={{ height: 70, width: 70 }} />
+              </StyledTableCell>
+              <StyledTableCell align="center">
+                <BlueButton txt="download" cta={()=>{ctaDownloadHandler(item)}}/>
               </StyledTableCell>
               <StyledTableCell align="right">
                 <BlueButton txt="Delete" />

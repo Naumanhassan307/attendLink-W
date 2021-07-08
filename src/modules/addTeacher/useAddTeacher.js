@@ -1,20 +1,36 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-
 import { AddTeacherAct } from "../../store/actions/TeacherAction";
+
+import QRCode from "qrcode";
 
 export function useAddTeacher() {
   const [tchName, setTchName] = useState("");
   const [tchFName, setTchFName] = useState("");
   const [tchGender, setTchGender] = useState("");
   const [tchDepart, setTchDepart] = useState("");
-  const [qr, setQr] = useState("QR CODE");
+  
+  const tchId = `TCH-${Math.floor(Math.random() * 10000)}`
+  let qr = "";
+  let teacher = {};
+  
 
   const dispatch = useDispatch();
-  let teacher = {};
-  const ctaQrHandler = () => {};
+  
+  
+  const ctaQrHandler = async () => {
 
-  const ctaSubmitHander = () => {
+    try {
+     qr = await QRCode.toDataURL(`${tchId}-${tchName.toUpperCase()}`);
+     console.log("Qr code res", qr);
+      
+    } catch (error) {
+      console.log("QR code error", error);
+    }
+    // setAllow(true)
+  };
+
+  const ctaSubmitHander = async () => {
     if (
       tchName === "" ||
       tchFName === "" ||
@@ -22,22 +38,31 @@ export function useAddTeacher() {
       tchDepart === ""
     ) {
       alert("Please Fil All Fields!");
+      return
     } else {
-      teacher = {
-        id: `TCH-${Math.floor(Math.random() * 10000)}`,
-        date: new Date().toISOString().split("T")[0],
-        time: new Date().toLocaleTimeString(),
-        name: tchName.toUpperCase(),
-        fName: tchFName.toUpperCase(),
-        gender: tchGender,
-        depart: tchDepart,
-        code: qr,
-      };
-      //   }
+      
+        ctaQrHandler()
+        setTimeout(() => {
+          console.log("qr link after call", qr);
+          teacher = {
+            id: tchId,
+            date: new Date().toISOString().split("T")[0],
+            time: new Date().toLocaleTimeString(),
+            name: tchName.toUpperCase(),
+            fName: tchFName.toUpperCase(),
+            gender: tchGender,
+            depart: tchDepart,
+            code: qr,
+          };
+          console.log("Teacher on OBJ", teacher);
 
-      console.log("Teacher on OBJ", teacher);
+          dispatch(AddTeacherAct(teacher));
+          alert("Record Successfully Saved!");
+        }, 1000);
+        
+      
 
-      dispatch(AddTeacherAct(teacher));
+      
     }
   };
 
@@ -48,5 +73,6 @@ export function useAddTeacher() {
     setTchDepart,
     ctaQrHandler,
     ctaSubmitHander,
+    
   ];
 }
