@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import jsPDF from "jspdf";
+
+import {DelTeacherAct} from "../../store/actions/TeacherAction"
 
 function useDeleteUpdate() {
     
   const store = useSelector((store) => store.TeacherReducer.teachers);
-  console.log("Store data come from store is ", store);
+  // console.log("Store data come from store is ", store);
+
+
   const ctaDownloadHandler=(item)=>{
-    console.log("item in download is", item);
+    // console.log("item in download is", item);
     const doc = new jsPDF();
     // doc.addImage(`${item.code}.PNG`, 65, 20, 500, 400)
 
@@ -34,6 +38,14 @@ function useDeleteUpdate() {
     doc.save(`${item.id}-${item.name}.pdf`);
   }
 
-  return [store, ctaDownloadHandler];
+  const dispatch = useDispatch()
+
+  const ctaDeleteHandler=(itemId)=>{
+console.log("delete item is ", itemId);
+
+    dispatch(DelTeacherAct(itemId));
+  }
+
+  return [store, ctaDownloadHandler, ctaDeleteHandler];
 }
 export default useDeleteUpdate;

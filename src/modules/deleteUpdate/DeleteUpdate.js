@@ -42,7 +42,7 @@ const useStyles = makeStyles({
 export default function DeleteUpdate() {
   const classes = useStyles();
 
-  const [store, ctaDownloadHandler] = useDeleteUpdate();
+  const [store, ctaDownloadHandler, ctaDeleteHandler] = useDeleteUpdate();
 
   return (
     <TableContainer component={Paper}>
@@ -76,7 +76,7 @@ export default function DeleteUpdate() {
                 <BlueButton txt="download" cta={()=>{ctaDownloadHandler(item)}}/>
               </StyledTableCell>
               <StyledTableCell align="right">
-                <BlueButton txt="Delete" />
+                <BlueButton txt="Delete" cta={()=>{ctaDeleteHandler(item.id)}}/>
               </StyledTableCell>
             </StyledTableRow>
           ))}
