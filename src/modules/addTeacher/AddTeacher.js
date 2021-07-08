@@ -6,10 +6,19 @@ import Gender from "./gender/Gender";
 import BlueButton from "../../constants/button/Button";
 
 import "./AddTeacherStyle.css";
-import {useAddTeacher} from "./useAddTeacher"
+import { useAddTeacher } from "./useAddTeacher";
 
 function AddTeacher() {
-  const [setTchName, setTchFName, setTchGender, setTchDepart, ctaQrHandler, ctaSubmitHander, empty] = useAddTeacher();
+  const [
+    setTchName,
+    setTchFName,
+    setTchGender,
+    setTchDepart,
+    ctaQrHandler,
+    ctaSubmitHander,
+    emptyf,
+    setEmptyf,
+  ] = useAddTeacher();
   return (
     <>
       <div className="head-div">Add Teacher</div>
@@ -49,11 +58,9 @@ function AddTeacher() {
       <div className="my-inner-qrbtn">
         <BlueButton txt="QR Code" cta={ctaQrHandler} />
       </div>
-     
 
       <div className="my-inner-btn">
         <BlueButton txt="Submit" cta={ctaSubmitHander} />
-        
       </div>
     </>
   );

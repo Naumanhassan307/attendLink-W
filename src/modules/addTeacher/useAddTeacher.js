@@ -12,34 +12,33 @@ export function useAddTeacher() {
 
   const dispatch = useDispatch();
   let teacher = {};
-  const ctaQrHandler = () => {
-    teacher = {
-      id: `TCH-${Math.floor(Math.random() * 10000)}`,
-      date: new Date().toISOString().split("T")[0],
-      time: new Date().toLocaleTimeString(),
-      name: tchName,
-      fName: tchFName,
-      gender: tchGender,
-      depart: tchDepart,
-      code: qr,
-    };
-
-    console.log("Teacher on OBJ", teacher);
-    // setTchName("")
-    // setTchFName("")
-    // setTchGender("")
-    // setTchDepart("")
-    // setQr("")
-  };
+  const ctaQrHandler = () => {};
 
   const ctaSubmitHander = () => {
-    dispatch(AddTeacherAct(teacher));
+    if (
+      tchName === "" ||
+      tchFName === "" ||
+      tchGender === "" ||
+      tchDepart === ""
+    ) {
+      alert("Please Fil All Fields!");
+    } else {
+      teacher = {
+        id: `TCH-${Math.floor(Math.random() * 10000)}`,
+        date: new Date().toISOString().split("T")[0],
+        time: new Date().toLocaleTimeString(),
+        name: tchName.toUpperCase(),
+        fName: tchFName.toUpperCase(),
+        gender: tchGender,
+        depart: tchDepart,
+        code: qr,
+      };
+      //   }
 
-    setTchName("");
-    setTchFName("");
-    setTchGender("");
-    setTchDepart("");
-    setQr("");
+      console.log("Teacher on OBJ", teacher);
+
+      dispatch(AddTeacherAct(teacher));
+    }
   };
 
   return [

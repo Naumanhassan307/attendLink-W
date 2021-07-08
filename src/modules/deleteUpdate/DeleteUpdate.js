@@ -8,15 +8,13 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-
-
 import BlueButton from "../../constants/button/Button";
+import useDeleteUpdate from "./useDeleteUpdate";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: "rgba(0, 0, 0, 0.780)",
     color: theme.palette.common.white,
-    
   },
   body: {
     fontSize: 14,
@@ -35,16 +33,6 @@ function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
 
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
- 
- 
-];
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
@@ -54,8 +42,9 @@ const useStyles = makeStyles({
 export default function DeleteUpdate() {
   const classes = useStyles();
 
+  const [store, showTable] = useDeleteUpdate();
+
   return (
-      
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
@@ -68,23 +57,27 @@ export default function DeleteUpdate() {
             <StyledTableCell align="center">DPDATE RECORD</StyledTableCell>
           </TableRow>
         </TableHead>
+
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell align="left">{row.calories}</StyledTableCell>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
+          {store.map((item) => (
+            <StyledTableRow key={item.name}>
+              <StyledTableCell align="left">{item.id}</StyledTableCell>
+              <StyledTableCell component="th" scope="item">
+                {item.name}
               </StyledTableCell>
 
-              <StyledTableCell align="left">{row.calories}</StyledTableCell>
-              <StyledTableCell align="left">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right"><BlueButton txt="Update"/></StyledTableCell>
-              <StyledTableCell align="right"><BlueButton txt="Delete"/></StyledTableCell>
+              <StyledTableCell align="left">{item.fName}</StyledTableCell>
+              <StyledTableCell align="left">{item.depart}</StyledTableCell>
+              <StyledTableCell align="right">
+                <BlueButton txt="Update" />
+              </StyledTableCell>
+              <StyledTableCell align="right">
+                <BlueButton txt="Delete" />
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-   
   );
 }
