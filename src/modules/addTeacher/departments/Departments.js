@@ -45,9 +45,10 @@ export default function Departments({ setTchDepart }) {
           }}
         >
           <option aria-label="None" value="" />
-          <option value="Computer Science">Computer Science</option>
-          <option value="Physics">Physics</option>
-          <option value="Math">Math</option>
+          <option value="COMPUTER SCIENCE">Computer Science</option>
+          <option value="PHYSICS">Physics</option>
+          <option value="MATH">Math</option>
+          <option value="ENGLISH">English</option>
         </Select>
       </FormControl>
     </div>

@@ -2,15 +2,17 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import jsPDF from "jspdf";
 
-import {DelTeacherAct, } from "../../store/actions/TeacherAction"
+import { DelTeacherAct } from "../../store/actions/TeacherAction";
 
 function useDeleteUpdate() {
-    
+
+  const [loading, setLoading] = useState(false)
+ 
+
   const store = useSelector((store) => store.TeacherReducer.teachers);
   console.log("Store data come from store is ", store);
 
-
-  const ctaDownloadHandler=(item)=>{
+  const ctaDownloadHandler = (item) => {
     // console.log("item in download is", item);
     const doc = new jsPDF();
     // doc.addImage(`${item.code}.PNG`, 65, 20, 500, 400)
@@ -18,11 +20,15 @@ function useDeleteUpdate() {
     doc.addFont("Helvertica", "bold");
     doc.text(80, 30, "Attend Link");
 
-    doc.text(10, 40, "========================================================");
+    doc.text(
+      10,
+      40,
+      "========================================================"
+    );
 
     doc.text(10, 50, "Teacher ID:");
     doc.text(10, 60, "Teacher Name:");
-    
+
     doc.text(10, 70, "Father Name:");
     doc.text(10, 80, "Department:");
 
@@ -32,21 +38,26 @@ function useDeleteUpdate() {
     doc.text(70, 70, item.fName);
     doc.text(70, 80, item.depart);
 
-    doc.text(10, 90, "========================================================");
+    doc.text(
+      10,
+      90,
+      "========================================================"
+    );
 
-    doc.addImage(item.code, 65, 100, 50, 50)
+    doc.addImage(item.code, 65, 100, 50, 50);
 
     doc.save(`${item.id}-${item.name}.pdf`);
-  }
+  };
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const ctaDeleteHandler=(itemId)=>{
-console.log("delete item is ", itemId);
+  const ctaDeleteHandler = ( itemId, tchDocId , tchName) => {
+    console.log("delete item is ", itemId);
+    console.log("delete item is ", tchDocId);
 
-    dispatch(DelTeacherAct(itemId));
-  }
+    dispatch(DelTeacherAct(itemId, tchDocId, tchName));
+  };
 
-  return [store, ctaDownloadHandler, ctaDeleteHandler];
+  return [store, ctaDownloadHandler, ctaDeleteHandler, loading, setLoading, ];
 }
 export default useDeleteUpdate;

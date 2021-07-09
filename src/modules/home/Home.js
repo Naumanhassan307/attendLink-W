@@ -21,6 +21,7 @@ import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
 import DeleteSweepOutlinedIcon from "@material-ui/icons/DeleteSweepOutlined";
 import AssignmentTurnedInOutlinedIcon from "@material-ui/icons/AssignmentTurnedInOutlined";
 import PowerSettingsNewOutlinedIcon from "@material-ui/icons/PowerSettingsNewOutlined";
+import AssignmentIndOutlinedIcon from "@material-ui/icons/AssignmentIndOutlined";
 
 import {  Link, NavLink} from "react-router-dom";
 
@@ -188,7 +189,7 @@ export default function Home() {
           <NavLink activeClassName="active_class" className="mu" exact to="/allrecords">
             <ListItem button key="All Records">
               <ListItemIcon>
-                <DeleteSweepOutlinedIcon />
+                <AssignmentIndOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="All Records" style={{textDecoration: "none"}}/>
               <br />

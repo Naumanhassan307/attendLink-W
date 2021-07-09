@@ -3,6 +3,7 @@ import { ADD_TEACHER, DEL_TEACHER, DEL_ALL_TEACHER, FETCH_ALL_TEACHER } from "..
 
 import { db } from "../../config/firebase/Firebase";
 
+
 export const AddTeacherAct = (data) => async (dispatch) =>{
    
 console.log("data in add act",data);
@@ -20,35 +21,58 @@ console.log("data in add act",data);
     }
 }
 
-export const FetchTeacherAct = () => async (dispatch) =>{
-   try {
-     let fetchData = await db.collection("AddTeacher").get();
 
-     let Array = [];
-     fetchData.forEach((doc) => {
-       Array.push({
-         ...doc.data(),
-         cardId: doc.id,
-       });
-     });
+export const FetchTeacherAct = (setLoading) => async (dispatch) => {
+  try {
+    setLoading(true);
+    let fetchData = await db.collection("AddTeacher").get();
 
-     console.log("Fetch data in action =>", Array);
+    let Array = [];
+    fetchData.forEach((doc) => {
+      Array.push({
+        ...doc.data(),
+        tchDocId: doc.id,
+      });
+    });
 
-     dispatch({
-       type: FETCH_ALL_TEACHER,
-       payload: Array,
-     });
-   } catch (error) {
-     console.log("error", error);
-   }
+    console.log("Fetch data in action =>", Array);
 
-}
+    dispatch({
+      type: FETCH_ALL_TEACHER,
+      payload: Array,
+    });
+  } catch (error) {
+   
+    console.log("error", error);
+  } finally {
+    setLoading(false);
+   
+  }
+};
 
 
-export const DelTeacherAct = (data) =>{
+export const DelTeacherAct = (data, tchDocId, tchName) => async (dispatch) =>{
     console.log(" Del Teacher in Action ", data);
-    return {
-      type: DEL_TEACHER,
-      payload: data,
-    };
+    console.log(" DeluuId Teacher in Action ", tchDocId);
+
+
+    try {
+
+      const alt = ` ${tchName}   ${data}  wil be Delete!`;
+      alert( alt);
+        await db.collection("AddTeacher").doc(tchDocId).delete();
+    
+
+      await dispatch({
+        type: DEL_TEACHER,
+        payload: data,
+      });
+      alert("Data Removed Successfully!");
+      
+    } catch (error) {
+      console.log("Error during delete teacher", error);
+    }
+
+
+    
 }

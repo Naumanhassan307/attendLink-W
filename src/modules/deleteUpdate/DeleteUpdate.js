@@ -14,6 +14,7 @@ import useDeleteUpdate from "./useDeleteUpdate";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {FetchTeacherAct} from "../../store/actions/TeacherAction"
+import Loader from "../../constants/loader/Loader";
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -46,54 +47,80 @@ const useStyles = makeStyles({
 
 export default function DeleteUpdate() {
 
+  const [store, ctaDownloadHandler, ctaDeleteHandler, loading, setLoading, errLoading, setErrLoading] = useDeleteUpdate();
+
 
   const dispatch =useDispatch()
+
   useEffect(() => {
-    dispatch(FetchTeacherAct());
+   
+    dispatch(FetchTeacherAct(setLoading, setErrLoading));
   }, []);
+  
 
   const classes = useStyles();
 
-  const [store, ctaDownloadHandler, ctaDeleteHandler] = useDeleteUpdate();
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>TEACHER ID</StyledTableCell>
-            <StyledTableCell>TEACHER NAME</StyledTableCell>
-            <StyledTableCell align="left">FATHER NAME</StyledTableCell>
-            <StyledTableCell align="left">DEPARTMENT</StyledTableCell>
-            <StyledTableCell align="center">QR CODE</StyledTableCell>
-            <StyledTableCell align="center">DOWNLOAD</StyledTableCell>
-            <StyledTableCell align="center">DELETE RECORD</StyledTableCell>
-          </TableRow>
-        </TableHead>
+    <>
+    {
+      loading && <Loader /> 
+    }
+      
+        
+        
+      
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>TEACHER ID</StyledTableCell>
+              <StyledTableCell>TEACHER NAME</StyledTableCell>
+              <StyledTableCell align="left">FATHER NAME</StyledTableCell>
+              <StyledTableCell align="left">DEPARTMENT</StyledTableCell>
+              <StyledTableCell align="center">QR CODE</StyledTableCell>
+              <StyledTableCell align="center">DOWNLOAD</StyledTableCell>
+              <StyledTableCell align="center">DELETE RECORD</StyledTableCell>
+            </TableRow>
+          </TableHead>
 
-        <TableBody>
-          {store.map((item) => (
-            <StyledTableRow key={item.name}>
-              <StyledTableCell align="left">{item.id}</StyledTableCell>
-              <StyledTableCell component="th" scope="item">
-                {item.name}
-              </StyledTableCell>
+          <TableBody>
+            {store.map((item) => (
+              <StyledTableRow key={item.name}>
+                <StyledTableCell align="left">{item.id}</StyledTableCell>
+                <StyledTableCell component="th" scope="item">
+                  {item.name}
+                </StyledTableCell>
 
-              <StyledTableCell align="left">{item.fName}</StyledTableCell>
-              <StyledTableCell align="left">{item.depart}</StyledTableCell>
-              <StyledTableCell align="center">
-                <img src={item.code} style={{ height: 70, width: 70 }} />
-              </StyledTableCell>
-              <StyledTableCell align="center">
-                <BlueButton txt="download" cta={()=>{ctaDownloadHandler(item)}}/>
-              </StyledTableCell>
-              <StyledTableCell align="right">
+                <StyledTableCell align="left">{item.fName}</StyledTableCell>
+                <StyledTableCell align="left">{item.depart}</StyledTableCell>
+                <StyledTableCell align="center">
+                  <img src={item.code} style={{ height: 70, width: 70 }} />
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  <BlueButton
+                    txt="download"
+                    cta={() => {
+                      ctaDownloadHandler(item);
+                    }}
+                  />
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  <BlueButton
+                    txt="Delete"
+                    cta={() => {
+                      ctaDeleteHandler(item.id, item.tchDocId, item.name);
+                    }}
+                  />
+                </StyledTableCell>
+                {/* <StyledTableCell align="right">
                 <BlueButton txt="Delete" cta={()=>{ctaDeleteHandler(item.id)}}/>
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+              </StyledTableCell> */}
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 }
