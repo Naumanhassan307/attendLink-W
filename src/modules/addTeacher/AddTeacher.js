@@ -20,6 +20,7 @@ function AddTeacher() {
   ] = useAddTeacher();
   return (
     <>
+     <h5 style={{textAlign: "right", marginRight: 15}}>Developed By: Nauman Hassan</h5>
       <div className="head-div">Add Teacher</div>
 
       <div className="my-outer-class">

@@ -1,5 +1,11 @@
 
-import { ADD_TEACHER, DEL_TEACHER, DEL_ALL_TEACHER , FETCH_ALL_TEACHER} from "../TypeConstant";
+import {
+  ADD_TEACHER,
+  DEL_TEACHER,
+  DEL_ALL_TEACHER,
+  FETCH_ALL_TEACHER,
+  FETCH_Total_TEACHER,
+} from "../TypeConstant";
 
 const initialState ={
 
@@ -28,6 +34,13 @@ function TeacherReducer(state = initialState, action){
         };
       }
       case FETCH_ALL_TEACHER: {
+        return {
+          ...state,
+          // teachers: [action.payload],
+          teachers: action.payload,
+        };
+      }
+      case FETCH_Total_TEACHER: {
         return {
           ...state,
           // teachers: [action.payload],

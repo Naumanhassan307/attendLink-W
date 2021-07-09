@@ -129,7 +129,7 @@ export default function Home() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" Wrap>
             Attend Link
           </Typography>
         </Toolbar>
@@ -167,43 +167,67 @@ export default function Home() {
               <ListItemIcon>
                 <AssessmentOutlinedIcon />
               </ListItemIcon>
-              <ListItemText primary="Today Overview"  />
+              <ListItemText primary="Today Overview" />
               <br />
               <br />
               <br />
             </ListItem>
           </NavLink>
 
-          <NavLink activeClassName="active_class" className="mu" exact to="/addteacher">
+          <NavLink
+            activeClassName="active_class"
+            className="mu"
+            exact
+            to="/addteacher"
+          >
             <ListItem button key="Add Teacher">
               <ListItemIcon>
                 <PersonAddOutlinedIcon />
               </ListItemIcon>
-              <ListItemText primary="Add Teacher" style={{textDecoration: "none"}} />
+              <ListItemText
+                primary="Add Teacher"
+                style={{ textDecoration: "none" }}
+              />
               <br />
               <br />
               <br />
             </ListItem>
           </NavLink>
 
-          <NavLink activeClassName="active_class" className="mu" exact to="/allrecords">
+          <NavLink
+            activeClassName="active_class"
+            className="mu"
+            exact
+            to="/allrecords"
+          >
             <ListItem button key="All Records">
               <ListItemIcon>
                 <AssignmentIndOutlinedIcon />
               </ListItemIcon>
-              <ListItemText primary="All Records" style={{textDecoration: "none"}}/>
+              <ListItemText
+                primary="All Records"
+                style={{ textDecoration: "none" }}
+              />
               <br />
               <br />
               <br />
             </ListItem>
           </NavLink>
 
-          <NavLink activeClassName="active_class" className="mu" exact to="/chechkrecord">
+          <NavLink
+            activeClassName="active_class"
+            className="mu"
+            exact
+            to="/chechkrecord"
+          >
             <ListItem button key="Check Attendance">
               <ListItemIcon>
                 <AssignmentTurnedInOutlinedIcon />
               </ListItemIcon>
-              <ListItemText primary="Check Attendance" style={{textDecoration: "none"}} />
+              <ListItemText
+                primary="Check Attendance"
+                style={{ textDecoration: "none" }}
+              />
               <br />
               <br />
               <br />
@@ -212,18 +236,21 @@ export default function Home() {
         </List>
 
         <Divider />
-        <List>
-          <ListItem button key="Logout">
-            <br />
-            <br />
-            <br />
+        <NavLink activeClassName="active_class" className="mu" exact to="/auth">
+          <List>
+            <ListItem button key="Logout">
+              <br />
+              <br />
+              <br />
 
-            <ListItemIcon>
-              <PowerSettingsNewOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText primary="Logout" />
-          </ListItem>
-        </List>
+              <ListItemIcon>
+                <PowerSettingsNewOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Logout" />
+            </ListItem>
+          </List>
+        </NavLink>
+        
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />

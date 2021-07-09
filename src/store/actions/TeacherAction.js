@@ -1,5 +1,11 @@
 
-import { ADD_TEACHER, DEL_TEACHER, DEL_ALL_TEACHER, FETCH_ALL_TEACHER } from "../TypeConstant";
+import {
+  ADD_TEACHER,
+  DEL_TEACHER,
+  DEL_ALL_TEACHER,
+  FETCH_ALL_TEACHER,
+  FETCH_Total_TEACHER,
+} from "../TypeConstant";
 
 import { db } from "../../config/firebase/Firebase";
 
@@ -47,6 +53,31 @@ export const FetchTeacherAct = (setLoading) => async (dispatch) => {
   } finally {
     setLoading(false);
    
+  }
+};
+export const FetchTotalTeacherAct = (setLoading) => async (dispatch) => {
+  try {
+    setLoading(true);
+    let fetchData = await db.collection("AddTeacher").get();
+
+    let Array = [];
+    fetchData.forEach((doc) => {
+      Array.push({
+        ...doc.data(),
+        tchDocId: doc.id,
+      });
+    });
+
+    console.log("Fetch Total data in action =>", Array);
+
+    dispatch({
+      type: FETCH_Total_TEACHER,
+      payload: Array,
+    });
+  } catch (error) {
+    console.log("error", error);
+  } finally {
+    setLoading(false);
   }
 };
 

@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Home from  "../../modules/home/Home"
+
 import OverView from "../../modules/overView/OverView";
 import  AddTeacher from "../../modules/addTeacher/AddTeacher"
 import DeleteUpdate from "../../modules/deleteUpdate/DeleteUpdate";
+import CheckAttendence from "../../modules/checkAttendence/CheckAttendence";
+import Login from "../../auth/Login";
 
 
 
@@ -21,7 +23,10 @@ function Navigation() {
           <DeleteUpdate />
         </Route>
         <Route exact path="/chechkrecord">
-          <OverView />
+          <CheckAttendence />
+        </Route>
+        <Route exact path="/auth">
+          <Login />
         </Route>
       </Switch>
     
