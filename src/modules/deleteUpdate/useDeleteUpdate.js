@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import jsPDF from "jspdf";
 
-import {DelTeacherAct} from "../../store/actions/TeacherAction"
+import {DelTeacherAct, } from "../../store/actions/TeacherAction"
 
 function useDeleteUpdate() {
     
   const store = useSelector((store) => store.TeacherReducer.teachers);
-  // console.log("Store data come from store is ", store);
+  console.log("Store data come from store is ", store);
 
 
   const ctaDownloadHandler=(item)=>{
@@ -22,6 +22,7 @@ function useDeleteUpdate() {
 
     doc.text(10, 50, "Teacher ID:");
     doc.text(10, 60, "Teacher Name:");
+    
     doc.text(10, 70, "Father Name:");
     doc.text(10, 80, "Department:");
 

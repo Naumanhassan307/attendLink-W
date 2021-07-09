@@ -11,6 +11,11 @@ import Paper from "@material-ui/core/Paper";
 import BlueButton from "../../constants/button/Button";
 import useDeleteUpdate from "./useDeleteUpdate";
 
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {FetchTeacherAct} from "../../store/actions/TeacherAction"
+
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: "rgba(0, 0, 0, 0.780)",
@@ -40,6 +45,13 @@ const useStyles = makeStyles({
 });
 
 export default function DeleteUpdate() {
+
+
+  const dispatch =useDispatch()
+  useEffect(() => {
+    dispatch(FetchTeacherAct());
+  }, []);
+
   const classes = useStyles();
 
   const [store, ctaDownloadHandler, ctaDeleteHandler] = useDeleteUpdate();

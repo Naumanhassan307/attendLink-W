@@ -6,9 +6,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(1),
-      backgroundColor:" rgba(0, 0, 0, 0.801)",
+      backgroundColor: " rgba(0, 0, 0, 0.801)",
       width: 150,
-      height: 40
+      height: 40,
     },
   },
 }));
@@ -18,7 +18,7 @@ export default function BlueButton({ txt, cta }) {
 
   return (
     <div className={classes.root}>
-      <Button variant="contained" color="primary" onClick={cta} >
+      <Button variant="contained" color="primary" onClick={cta}>
         {txt}
       </Button>
     </div>

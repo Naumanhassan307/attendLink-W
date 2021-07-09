@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { AddTeacherAct } from "../../store/actions/TeacherAction";
+import { AddTeacherAct , } from "../../store/actions/TeacherAction";
 
 import QRCode from "qrcode";
+
+
+
 
 export function useAddTeacher() {
   const [tchName, setTchName] = useState("");
@@ -18,6 +21,11 @@ export function useAddTeacher() {
   const dispatch = useDispatch();
   
   
+
+  
+
+
+
   const ctaQrHandler = async () => {
 
     try {
@@ -57,6 +65,7 @@ export function useAddTeacher() {
           console.log("Teacher on OBJ", teacher);
 
           dispatch(AddTeacherAct(teacher));
+
           alert("Record Successfully Saved!");
         }, 1000);
         
