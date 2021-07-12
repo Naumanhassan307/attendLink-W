@@ -16,7 +16,7 @@ console.log("data in add act",data);
     try {
       let res = await db.collection("AddTeacher").add(data);
       console.log("response ", await res); 
-      // const apiData = await res.data();
+      
       dispatch({
         type: ADD_TEACHER,
         payload: data,

@@ -1,0 +1,25 @@
+.qr-main{
+    height: 320px;
+    width: 95%;
+    border: 1px solid red;
+    margin:30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.qr-main-1{
+    height: 320px;
+    width: 50%;
+    border: 1px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.qr-main-2{
+    height: 320px;
+    width: 50%;
+    border: 1px solid rgb(24, 95, 189);
+    
+}

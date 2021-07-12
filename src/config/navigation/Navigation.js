@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-
+import MarkAttendance from "../../modules/markAttendance/MarkAttendance"
 import OverView from "../../modules/overView/OverView";
 import  AddTeacher from "../../modules/addTeacher/AddTeacher"
 import DeleteUpdate from "../../modules/deleteUpdate/DeleteUpdate";
@@ -14,6 +14,9 @@ function Navigation() {
     
       <Switch>
         <Route exact path="/">
+         <MarkAttendance />
+        </Route>
+        <Route exact path="/today">
          <OverView />
         </Route>
         <Route exact path="/addteacher">
