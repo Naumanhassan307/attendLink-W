@@ -162,7 +162,7 @@ export default function Home() {
         <Divider />
 
         <List>
-          {/* <NavLink activeClassName="active_class" className="mu" exact to="/">
+          <NavLink activeClassName="active_class" className="mu" exact to="/att">
             <ListItem button key="Mark Attendance">
               <ListItemIcon>
                 <AssessmentOutlinedIcon />
@@ -172,8 +172,8 @@ export default function Home() {
               <br />
               <br />
             </ListItem>
-          </NavLink> */}
-          <NavLink activeClassName="active_class" className="mu" exact to="/today">
+          </NavLink>
+          <NavLink activeClassName="active_class" className="mu" exact to="/">
             <ListItem button key="Today Overview">
               <ListItemIcon>
                 <AssessmentOutlinedIcon />

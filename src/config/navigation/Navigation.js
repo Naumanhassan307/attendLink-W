@@ -5,34 +5,47 @@ import OverView from "../../modules/overView/OverView";
 import  AddTeacher from "../../modules/addTeacher/AddTeacher"
 import DeleteUpdate from "../../modules/deleteUpdate/DeleteUpdate";
 import CheckAttendence from "../../modules/checkAttendence/CheckAttendence";
-import Login from "../../auth/Login";
+import Login from "../../auth/login/Login";
 
-
+import PrivateNavigation from "./PrivateNavigation";
+import PublicNavigation from "./PublicNavigation";
+import { useSelector } from "react-redux";
+import Logout from "../../auth/logout/LogOut";
 
 function Navigation() {
+
+  const authState = useSelector((store) => store.AuthReducer.isLogIn);
+  console.log("state is", authState);
+
+  // const authState = true;
+ 
   return (
-    
-      <Switch>
-        <Route exact path="/">
+    <Switch>
+      {/* <Route exact path="/att">
          <MarkAttendance />
-        </Route>
-        <Route exact path="/today">
-         <OverView />
-        </Route>
-        <Route exact path="/addteacher">
-          <AddTeacher />
-        </Route>
-        <Route exact path="/allrecords">
-          <DeleteUpdate />
-        </Route>
-        <Route exact path="/chechkrecord">
-          <CheckAttendence />
-        </Route>
-        <Route exact path="/auth">
-          <Login />
-        </Route>
-      </Switch>
-    
+        </Route> */}
+      <Route exact path="/">
+        <OverView />
+      </Route>
+
+      <PrivateNavigation exact path="/addteacher" auth={authState}>
+        <AddTeacher />
+      </PrivateNavigation>
+      <PrivateNavigation exact path="/allrecords" auth={authState}>
+        <DeleteUpdate />
+      </PrivateNavigation>
+
+      <Route exact path="/chechkrecord">
+        <CheckAttendence />
+      </Route>
+      <PublicNavigation exact path="/auth" auth={authState}>
+        <Login />
+      </PublicNavigation>
+
+      <Route exact path="/logout">
+        <Logout />
+      </Route>
+    </Switch>
   );
 }
 export default Navigation;

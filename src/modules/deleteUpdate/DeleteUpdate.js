@@ -70,6 +70,7 @@ export default function DeleteUpdate() {
                 <StyledTableCell>TEACHER NAME</StyledTableCell>
                 <StyledTableCell align="left">FATHER NAME</StyledTableCell>
                 <StyledTableCell align="left">DEPARTMENT</StyledTableCell>
+                <StyledTableCell align="left">E-mail</StyledTableCell>
                 <StyledTableCell align="center">QR CODE</StyledTableCell>
                 <StyledTableCell align="center">DOWNLOAD</StyledTableCell>
                 <StyledTableCell align="center">DELETE RECORD</StyledTableCell>
@@ -86,6 +87,7 @@ export default function DeleteUpdate() {
 
                   <StyledTableCell align="left">{item.fName}</StyledTableCell>
                   <StyledTableCell align="left">{item.depart}</StyledTableCell>
+                  <StyledTableCell align="left">{item.email}</StyledTableCell>
                   <StyledTableCell align="center">
                     <img src={item.code} style={{ height: 70, width: 70 }} />
                   </StyledTableCell>

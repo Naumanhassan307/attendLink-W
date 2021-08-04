@@ -8,7 +8,8 @@ function MarkAttendance() {
     const [ctaErrorHandler, ctaScannWebcam, setQrRun, qrRun] = useMarkAttendance();
  
   return (
-    <>
+    
+      <>
       
       <h5 style={{ textAlign: "right", marginRight: 15 }}>
         Developed By: Nauman Hassan
@@ -19,7 +20,7 @@ function MarkAttendance() {
           <h2>Qr Code Scanner</h2>
           {/* {qrRun && ( */}
             <QrReader
-              delay={300}
+              delay={false}
               style={{ width: 280, height: 240 }}
               onError={ctaErrorHandler}
               onScan={ctaScannWebcam}

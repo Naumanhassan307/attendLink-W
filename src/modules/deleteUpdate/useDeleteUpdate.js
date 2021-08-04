@@ -28,19 +28,21 @@ function useDeleteUpdate() {
 
     doc.text(10, 50, "Teacher ID:");
     doc.text(10, 60, "Teacher Name:");
+    doc.text(10, 70, "Teacher E-mail:");
 
-    doc.text(10, 70, "Father Name:");
-    doc.text(10, 80, "Department:");
+    doc.text(10, 80, "Father Name:");
+    doc.text(10, 90, "Department:");
 
     doc.addFont("normal");
     doc.text(70, 50, item.id);
     doc.text(70, 60, item.name);
-    doc.text(70, 70, item.fName);
-    doc.text(70, 80, item.depart);
+    doc.text(70, 70, item.email);
+    doc.text(70, 80, item.fName);
+    doc.text(70, 90, item.depart);
 
     doc.text(
       10,
-      90,
+      100,
       "========================================================"
     );
 

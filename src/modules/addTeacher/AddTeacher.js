@@ -12,11 +12,16 @@ function AddTeacher() {
   const [
     setTchName,
     setTchFName,
+    setTchEmail,
     setTchGender,
     setTchDepart,
     ctaQrHandler,
     ctaSubmitHander,
     allow,
+    tchName,
+    tchFName,
+    tchGender,
+    tchDepart,
   ] = useAddTeacher();
   return (
     <>
@@ -29,6 +34,7 @@ function AddTeacher() {
             id="basic"
             autoComplete="off"
             label="Teacher Name"
+            
             required
             onChange={(e) => {
               setTchName(e.target.value);
@@ -40,18 +46,31 @@ function AddTeacher() {
             id="basic"
             autoComplete="off"
             label="Teacher Father Name"
+          
             required
             onChange={(e) => {
               setTchFName(e.target.value);
             }}
           />
         </div>
+        <div className="my-inner-class">
+          <TextField
+            id="basic"
+            autoComplete="off"
+            label="E-mail"
+          
+            required
+            onChange={(e) => {
+              setTchEmail(e.target.value);
+            }}
+          />
+        </div>
 
         <div className="my-inner-class">
-          <Gender setTchGender={setTchGender} />
+          <Gender setTchGender={setTchGender}  />
         </div>
         <div className="my-inner-class">
-          <Departments setTchDepart={setTchDepart} />
+          <Departments setTchDepart={setTchDepart}  />
         </div>
       </div>
 
