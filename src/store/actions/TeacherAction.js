@@ -3,6 +3,7 @@ import {
   ADD_TEACHER,
   DEL_TEACHER,
   DEL_ALL_TEACHER,
+  FETCH_Total_TEACHER_ATT,
   FETCH_ALL_TEACHER,
   FETCH_Total_TEACHER,
 } from "../TypeConstant";
@@ -68,7 +69,9 @@ export const FetchTotalTeacherAct = (setLoading) => async (dispatch) => {
       });
     });
 
-    console.log("Fetch Total data in action =>", Array);
+  
+  console.log("Fetch Total teacher data in action =>", Array);
+  
 
     dispatch({
       type: FETCH_Total_TEACHER,
@@ -79,6 +82,33 @@ export const FetchTotalTeacherAct = (setLoading) => async (dispatch) => {
   } finally {
     setLoading(false);
   }
+};
+
+export const FetchTodayAttendance = () => async (dispatch) => {
+  try {
+    
+    const fetchData = await db
+      .collection("TeacherAttend")
+      .doc("wbyvJhy8Fxdrt1Dx3JTX")
+      .collection(new Date().toISOString().split("T")[0])
+      .get();
+    console.log("FetchTodayAttendance",fetchData);
+     let Array = [];
+     fetchData.forEach((doc) => {
+       Array.push({
+         ...doc.data(),
+         tchDocId: doc.id,
+       });
+     });
+    console.log("Fetch Total Attendance data in action =>", Array);
+
+    dispatch({
+      type: FETCH_Total_TEACHER_ATT,
+      payload: Array,
+    });
+  } catch (error) {
+    console.log("error", error);
+  } 
 };
 
 

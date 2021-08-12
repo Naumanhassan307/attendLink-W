@@ -42,7 +42,7 @@ export function useAddTeacher() {
       setTimeout(() => {
         console.log("qr link after call", qr);
         teacher = {
-          id: tchId,
+          id: `${tchId}-${tchName.toUpperCase()}`,
           date: new Date().toISOString().split("T")[0],
           time: new Date().toLocaleTimeString(),
           name: tchName.toUpperCase(),

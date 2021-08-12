@@ -36,7 +36,7 @@ function useDeleteUpdate() {
     doc.addFont("normal");
     doc.text(70, 50, item.id);
     doc.text(70, 60, item.name);
-    doc.text(70, 70, item.email);
+    doc.text(70, 70, item.email.toUpperCase());
     doc.text(70, 80, item.fName);
     doc.text(70, 90, item.depart);
 

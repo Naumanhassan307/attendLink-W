@@ -87,7 +87,7 @@ export default function DeleteUpdate() {
 
                   <StyledTableCell align="left">{item.fName}</StyledTableCell>
                   <StyledTableCell align="left">{item.depart}</StyledTableCell>
-                  <StyledTableCell align="left">{item.email}</StyledTableCell>
+                  <StyledTableCell align="left">{item.email.toUpperCase()}</StyledTableCell>
                   <StyledTableCell align="center">
                     <img src={item.code} style={{ height: 70, width: 70 }} />
                   </StyledTableCell>
