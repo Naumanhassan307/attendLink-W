@@ -7,7 +7,10 @@ function Poster(){
         <p className="poster-main-div-txt">
           Order Tasty & Fresh <br /> Food.
           <br />
-          <p className="poster-main-div-txt-1">anytime!</p>
+          <p className="poster-main-div-txt-1">
+            anytime!
+            <button className="poster-main-div-txt-1-btn">CREATE ACCOUNT</button>
+          </p>
         </p>
       </div>
     );

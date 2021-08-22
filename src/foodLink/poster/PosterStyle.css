@@ -17,10 +17,71 @@
     font-size: 40px;
     font-family: Cursive, Arial, sans-serif;
 }
+.poster-main-div-txt:hover{
+   color: red;
+    transition: all .5s ease;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
 .poster-main-div-txt-1{
 
     
     color: rgb(255, 0, 0);
     font-size: 40px;
-    font-family: Cursive, Arial, sans-serif;   
+    font-family: Cursive, Arial, sans-serif; 
+    
+}
+.poster-main-div-txt-1-btn{
+    background-color: transparent;
+    outline: none;
+    width: auto;
+    height: auto;
+    font-size: 18px;
+    border: 1px solid white;
+    color: white;
+    padding: 5px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.poster-main-div-txt-1-btn:hover{
+    border: 1px solid red;
+    color: red;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+@media screen and (max-width : 880px){
+    .poster-main-div-txt{
+    
+    font-size: 20px;
+    
+}
+}
+@media screen and (max-width : 440px){
+    .poster-main-div-txt-1-btn{
+   
+    font-size: 10px;
+    
+}
+.poster-main-div {
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  background-image: url("../../assets/res/resimg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 70%;
+}
+.poster-main-div-txt{
+   
+    font-size: 15px;
+    
+}
 }
