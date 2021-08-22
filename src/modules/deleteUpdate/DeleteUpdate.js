@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { FetchTeacherAct } from "../../store/actions/TeacherAction";
 import Loader from "../../constants/loader/Loader";
+import { FetchUserAct } from "../../store/actions/FetchUserAct";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -51,7 +52,7 @@ export default function DeleteUpdate() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(FetchTeacherAct(setLoading));
+    dispatch(FetchUserAct());
   }, []);
 
   const classes = useStyles();
@@ -61,39 +62,43 @@ export default function DeleteUpdate() {
       <h5 style={{ textAlign: "right", marginRight: 15 }}>
         Developed By: Nauman Hassan
       </h5>
-      {loading ? (
+      {/* {loading ? (
         <Loader />
-      ) : (
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="customized table">
-            <TableHead>
-              <TableRow>
-                <StyledTableCell>Restaurent ID</StyledTableCell>
-                <StyledTableCell>Restaurent NAME</StyledTableCell>
-                <StyledTableCell align="left">Restaurent Country</StyledTableCell>
-                <StyledTableCell align="left">Restaurent City</StyledTableCell>
-                <StyledTableCell align="left">E-mail</StyledTableCell>
-                <StyledTableCell align="center">DELETE RECORD</StyledTableCell>
-              </TableRow>
-            </TableHead>
+      ) : ( */}
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              {/* <StyledTableCell>Restaurent ID</StyledTableCell> */}
+              <StyledTableCell>User NAME</StyledTableCell>
+              <StyledTableCell align="left">User Country</StyledTableCell>
+              <StyledTableCell align="left">User City</StyledTableCell>
+              <StyledTableCell align="left">User E-mail</StyledTableCell>
+              {/* <StyledTableCell align="center">DELETE RECORD</StyledTableCell> */}
+            </TableRow>
+          </TableHead>
 
-            <TableBody>
-              {store.map((item) => (
-                <StyledTableRow key={item.name}>
-                  <StyledTableCell align="left">{item.id}</StyledTableCell>
-                  <StyledTableCell component="th" scope="item">
-                    {item.name}
-                  </StyledTableCell>
+          <TableBody>
+            {store.map((item) => (
+              <StyledTableRow key={item.cUsername}>
+                {/* <StyledTableCell align="left">{item.id}</StyledTableCell> */}
+                <StyledTableCell component="th" scope="item">
+                  {item.cUsername.toUpperCase()}
+                </StyledTableCell>
 
-                  <StyledTableCell align="left">{item.fName}</StyledTableCell>
-                  <StyledTableCell align="left">{item.depart}</StyledTableCell>
-                  <StyledTableCell align="left">
-                    {item.email.toUpperCase()}
-                  </StyledTableCell>
-                  {/* <StyledTableCell align="center">
+                <StyledTableCell align="left">
+                  {item.cUsercountry.toUpperCase()}
+                </StyledTableCell>
+                <StyledTableCell align="left">
+                  {item.cUsercity.toUpperCase()}
+                </StyledTableCell>
+                <StyledTableCell align="left">
+                  {item.cUseremail.toUpperCase()}
+                </StyledTableCell>
+                {/* <StyledTableCell align="center">
                     <img src={item.code} style={{ height: 70, width: 70 }} />
                   </StyledTableCell> */}
-                  {/* <StyledTableCell align="center">
+                {/* <StyledTableCell align="center">
                     <BlueButton
                       txt="download"
                       cta={() => {
@@ -101,23 +106,23 @@ export default function DeleteUpdate() {
                       }}
                     />
                   </StyledTableCell> */}
-                  <StyledTableCell align="right">
-                    <BlueButton
-                      txt="Delete"
-                      cta={() => {
-                        ctaDeleteHandler(item.id, item.tchDocId, item.name);
-                      }}
-                    />
-                  </StyledTableCell>
-                  {/* <StyledTableCell align="right">
+                {/* <StyledTableCell align="right">
+                  <BlueButton
+                    txt="Delete"
+                    cta={() => {
+                      ctaDeleteHandler(item.id, item.tchDocId, item.name);
+                    }}
+                  />
+                </StyledTableCell> */}
+                {/* <StyledTableCell align="right">
                 <BlueButton txt="Delete" cta={()=>{ctaDeleteHandler(item.id)}}/>
               </StyledTableCell> */}
-                </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      )}
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      {/* )} */}
     </>
   );
 }

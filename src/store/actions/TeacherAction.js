@@ -121,7 +121,7 @@ export const DelTeacherAct = (data, tchDocId, tchName) => async (dispatch) =>{
 
       const alt = ` ${tchName}   ${data}  wil be Delete!`;
       alert( alt);
-        await db.collection("AddTeacher").doc(tchDocId).delete();
+        await db.collection("signupUser").doc(tchDocId).delete();
     
 
       await dispatch({

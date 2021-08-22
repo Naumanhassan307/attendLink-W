@@ -17,6 +17,7 @@ export const SignUpAct = (data) => async dispatch => {
       cUserphone: data.phone,
       cUsercountry: data.country,
       cUsercity: data.city,
+      cUserRole: "user"
     };
 
     dispatch(AddUserAct(createdUser));
