@@ -25,16 +25,17 @@ function AddTeacher() {
   ] = useAddTeacher();
   return (
     <>
-     <h5 style={{textAlign: "right", marginRight: 15}}>Developed By: Nauman Hassan</h5>
-      <div className="head-div">Add Teacher</div>
+      <h5 style={{ textAlign: "right", marginRight: 15 }}>
+        Developed By: Nauman Hassan
+      </h5>
+      <div className="head-div">Add Restaurent</div>
 
       <div className="my-outer-class">
         <div className="my-inner-class">
           <TextField
             id="basic"
             autoComplete="off"
-            label="Teacher Name"
-            
+            label="Restaurent Name"
             required
             onChange={(e) => {
               setTchName(e.target.value);
@@ -45,15 +46,14 @@ function AddTeacher() {
           <TextField
             id="basic"
             autoComplete="off"
-            label="Teacher Father Name"
-          
+            label="Restaurent Detail"
             required
             onChange={(e) => {
               setTchFName(e.target.value);
             }}
           />
         </div>
-        <div className="my-inner-class">
+        {/* <div className="my-inner-class">
           <TextField
             id="basic"
             autoComplete="off"
@@ -64,16 +64,20 @@ function AddTeacher() {
               setTchEmail(e.target.value);
             }}
           />
-        </div>
+        </div> */}
 
         <div className="my-inner-class">
-          <Gender setTchGender={setTchGender}  />
+          <Gender setTchGender={setTchGender} />
         </div>
         <div className="my-inner-class">
-          <Departments setTchDepart={setTchDepart}  />
+          <Departments setTchDepart={setTchDepart} />
         </div>
+        <div className="my-inner-class">
+        <input type="file" />
       </div>
 
+      </div>
+      
       {/* <div className="my-inner-qrbtn">
         <BlueButton txt="QR Code" cta={ctaQrHandler} />
       </div> */}

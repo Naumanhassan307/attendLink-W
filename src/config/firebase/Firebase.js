@@ -1,13 +1,13 @@
 import firebase from "firebase";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDneMlwnuJ8hMQnUzpXSKrFGRd5Cd1lzRg",
-  authDomain: "attendlink.firebaseapp.com",
-  projectId: "attendlink",
-  storageBucket: "attendlink.appspot.com",
-  messagingSenderId: "349622750072",
-  appId: "1:349622750072:web:ea780f117975990345168d",
-  measurementId: "G-NDD1NH4MHN",
+  apiKey: "AIzaSyDW6yGHhFByIoDeSRT7tLlAjZIG516o0-I",
+  authDomain: "foodlink-307.firebaseapp.com",
+  projectId: "foodlink-307",
+  storageBucket: "foodlink-307.appspot.com",
+  messagingSenderId: "936300655651",
+  appId: "1:936300655651:web:5b6a5192b42619b529ad96",
+  measurementId: "G-M4DS4ZNJSP",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

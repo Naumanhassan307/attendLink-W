@@ -58,7 +58,9 @@ export default function DeleteUpdate() {
 
   return (
     <>
-     <h5 style={{textAlign: "right", marginRight: 15}}>Developed By: Nauman Hassan</h5>
+      <h5 style={{ textAlign: "right", marginRight: 15 }}>
+        Developed By: Nauman Hassan
+      </h5>
       {loading ? (
         <Loader />
       ) : (
@@ -66,13 +68,11 @@ export default function DeleteUpdate() {
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>TEACHER ID</StyledTableCell>
-                <StyledTableCell>TEACHER NAME</StyledTableCell>
-                <StyledTableCell align="left">FATHER NAME</StyledTableCell>
-                <StyledTableCell align="left">DEPARTMENT</StyledTableCell>
+                <StyledTableCell>Restaurent ID</StyledTableCell>
+                <StyledTableCell>Restaurent NAME</StyledTableCell>
+                <StyledTableCell align="left">Restaurent Country</StyledTableCell>
+                <StyledTableCell align="left">Restaurent City</StyledTableCell>
                 <StyledTableCell align="left">E-mail</StyledTableCell>
-                <StyledTableCell align="center">QR CODE</StyledTableCell>
-                <StyledTableCell align="center">DOWNLOAD</StyledTableCell>
                 <StyledTableCell align="center">DELETE RECORD</StyledTableCell>
               </TableRow>
             </TableHead>
@@ -87,18 +87,20 @@ export default function DeleteUpdate() {
 
                   <StyledTableCell align="left">{item.fName}</StyledTableCell>
                   <StyledTableCell align="left">{item.depart}</StyledTableCell>
-                  <StyledTableCell align="left">{item.email.toUpperCase()}</StyledTableCell>
-                  <StyledTableCell align="center">
-                    <img src={item.code} style={{ height: 70, width: 70 }} />
+                  <StyledTableCell align="left">
+                    {item.email.toUpperCase()}
                   </StyledTableCell>
-                  <StyledTableCell align="center">
+                  {/* <StyledTableCell align="center">
+                    <img src={item.code} style={{ height: 70, width: 70 }} />
+                  </StyledTableCell> */}
+                  {/* <StyledTableCell align="center">
                     <BlueButton
                       txt="download"
                       cta={() => {
                         ctaDownloadHandler(item);
                       }}
                     />
-                  </StyledTableCell>
+                  </StyledTableCell> */}
                   <StyledTableCell align="right">
                     <BlueButton
                       txt="Delete"

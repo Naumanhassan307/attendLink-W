@@ -33,7 +33,7 @@ export default function Gender({ setTchGender }) {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="gender-native-simple">Gender</InputLabel>
+        <InputLabel htmlFor="gender-native-simple">City</InputLabel>
         <Select
           native
           value={state.gender}
@@ -44,9 +44,18 @@ export default function Gender({ setTchGender }) {
           }}
         >
           <option aria-label="None" value="" />
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
+          <option value="Ahmed Nager Chatha">Ahmed Nager Chatha</option>
+          <option value="Ahmadpur East">Ahmadpur East</option>
+          <option value="Ali Khan Abad">Ali Khan Abad</option>
+          <option value="Alipur">Alipur</option>
+          <option value="Arifwala">Arifwala</option>
+          <option value="Attock">Attock</option>
+          <option value="Bhera">Bhera</option>
+          <option value="Bhalwal">Bhalwal</option>
+          <option value="Bahawalnagar">Bahawalnagar</option>
+          <option value="Bahawalpur">Bahawalpur</option>
+          <option value="Bhakkar">Bhakkar</option>
+          <option value="Burewala">Burewala</option>
         </Select>
       </FormControl>
     </div>

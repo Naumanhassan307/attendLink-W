@@ -34,7 +34,7 @@ export default function Departments({ setTchDepart }) {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="department-native-simple">Department</InputLabel>
+        <InputLabel htmlFor="department-native-simple">Country</InputLabel>
         <Select
           native
           value={state.department}
@@ -45,10 +45,15 @@ export default function Departments({ setTchDepart }) {
           }}
         >
           <option aria-label="None" value="" />
-          <option value="COMPUTER SCIENCE">Computer Science</option>
-          <option value="PHYSICS">Physics</option>
-          <option value="MATH">Math</option>
-          <option value="ENGLISH">English</option>
+          <option value="Afganistan">Afghanistan</option>
+          <option value="Albania">Albania</option>
+          <option value="Algeria">Algeria</option>
+          <option value="American Samoa">American Samoa</option>
+          <option value="Oman">Oman</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="Palau Island">Palau Island</option>
+          <option value="Palestine">Palestine</option>
+          <option value="Zimbabwe">Zimbabwe</option>
         </Select>
       </FormControl>
     </div>

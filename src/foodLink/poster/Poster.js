@@ -1,6 +1,8 @@
 
 import "./PosterStyle.css";
 
+import {Link} from "react-router-dom"
+
 function Poster(){
     return (
       <div className="poster-main-div">
@@ -9,7 +11,11 @@ function Poster(){
           <br />
           <p className="poster-main-div-txt-1">
             anytime!
-            <button className="poster-main-div-txt-1-btn">CREATE ACCOUNT</button>
+            <Link exact to="/auth/signup" style={{textDecoration: "none"}}>
+              <button className="poster-main-div-txt-1-btn">
+                CREATE ACCOUNT
+              </button>
+            </Link>
           </p>
         </p>
       </div>

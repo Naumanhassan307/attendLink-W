@@ -129,9 +129,11 @@ export default function Home() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" Wrap>
-            Attend Link
-          </Typography>
+          <Link exact to="/" style={{ textDecoration: "none" }}>
+            <Typography variant="h6" Wrap>
+              FoodLink
+            </Typography>
+          </Link>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -173,30 +175,19 @@ export default function Home() {
               <br />
             </ListItem>
           </NavLink> */}
-          <NavLink activeClassName="active_class" className="mu" exact to="/">
-            <ListItem button key="Today Overview">
-              <ListItemIcon>
-                <AssessmentOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Today Overview" />
-              <br />
-              <br />
-              <br />
-            </ListItem>
-          </NavLink>
 
           <NavLink
             activeClassName="active_class"
             className="mu"
             exact
-            to="/addteacher"
+            to="/addRestaurent"
           >
-            <ListItem button key="Add Teacher">
+            <ListItem button key="Add Restaurent">
               <ListItemIcon>
                 <PersonAddOutlinedIcon />
               </ListItemIcon>
               <ListItemText
-                primary="Add Teacher"
+                primary="Add Restaurent"
                 style={{ textDecoration: "none" }}
               />
               <br />
@@ -225,7 +216,7 @@ export default function Home() {
             </ListItem>
           </NavLink>
 
-          <NavLink
+          {/* <NavLink
             activeClassName="active_class"
             className="mu"
             exact
@@ -243,12 +234,12 @@ export default function Home() {
               <br />
               <br />
             </ListItem>
-          </NavLink>
+          </NavLink> */}
         </List>
 
         <Divider />
         <NavLink activeClassName="active_class" className="mu" exact to="/auth">
-          <List>
+          {/* <List>
             <ListItem button key="Logout">
               <br />
               <br />
@@ -259,9 +250,8 @@ export default function Home() {
               </ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItem>
-          </List>
+          </List> */}
         </NavLink>
-        
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />

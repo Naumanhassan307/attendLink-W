@@ -13,7 +13,6 @@ function MainPage(){
             <Header />
             <Poster />
             <ResBody />
-            
             <Line />
             <Footer />
         </div>
