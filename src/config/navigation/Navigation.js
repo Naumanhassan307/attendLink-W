@@ -34,10 +34,10 @@ function Navigation() {
       <PrivateNavigation exact path="/allrecords" auth={authState}>
         <DeleteUpdate />
       </PrivateNavigation>
-
-      <Route exact path="/chechkrecord">
+      <PrivateNavigation exact path="/chechkrecord" auth={authState}>
         <CheckAttendence />
-      </Route>
+      </PrivateNavigation>
+
       <PublicNavigation exact path="/auth" auth={authState}>
         <Login />
       </PublicNavigation>
