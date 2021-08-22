@@ -1,0 +1,23 @@
+.resBody-main-div{
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* background-color: rgba(0, 0, 0, 0.021); */
+    
+}
+.resBody-card{
+    /* border: 1px solid red; */
+    width: 25%;
+    height: auto;
+    margin: 4%;
+}
+.resBody-main-div-tlt{
+    margin-left: 4%;
+    margin-top: 30px;
+    color: red;
+    font-size: 22px;
+    font-family: Cursive, Arial, sans-serif;
+    /* background-color: rgba(0, 0, 0, 0.021); */
+}
