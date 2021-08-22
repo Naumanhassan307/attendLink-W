@@ -17,19 +17,19 @@ function Navigation() {
   // const authState = useSelector((store) => store.AuthReducer.isLogIn);
   // console.log("state is", authState);
 
-  const authState = true;
+  // const authState = true;
  
   return (
     <Switch>
       
       
 
-      <PrivateNavigation exact path="/addRestaurent" auth={authState}>
+      <Route exact path="/addRestaurent" >
         <AddTeacher />
-      </PrivateNavigation>
-      <PrivateNavigation exact path="/allrecords" auth={authState}>
+      </Route>
+      <Route exact path="/allrecords" >
         <DeleteUpdate />
-      </PrivateNavigation>
+      </Route>
       
 
       {/* <PublicNavigation exact path="/auth" auth={authState}>
