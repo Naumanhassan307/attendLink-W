@@ -10,18 +10,13 @@ import { useAddTeacher } from "./useAddTeacher";
 
 function AddTeacher() {
   const [
-    setTchName,
-    setTchFName,
-    setTchEmail,
-    setTchGender,
-    setTchDepart,
-    ctaQrHandler,
+    setResName,
+    setResDetail,
+    setResCity,
+    setResCountry,
+    setResImg,
     ctaSubmitHander,
-    allow,
-    tchName,
-    tchFName,
-    tchGender,
-    tchDepart,
+    ctaImageHandler,
   ] = useAddTeacher();
   return (
     <>
@@ -38,7 +33,7 @@ function AddTeacher() {
             label="Restaurent Name"
             required
             onChange={(e) => {
-              setTchName(e.target.value);
+              setResName(e.target.value);
             }}
           />
         </div>
@@ -49,7 +44,7 @@ function AddTeacher() {
             label="Restaurent Detail"
             required
             onChange={(e) => {
-              setTchFName(e.target.value);
+              setResDetail(e.target.value);
             }}
           />
         </div>
@@ -67,17 +62,16 @@ function AddTeacher() {
         </div> */}
 
         <div className="my-inner-class">
-          <Gender setTchGender={setTchGender} />
+          <Gender setTchGender={setResCity} />
         </div>
         <div className="my-inner-class">
-          <Departments setTchDepart={setTchDepart} />
+          <Departments setTchDepart={setResCountry} />
         </div>
         <div className="my-inner-class">
-        <input type="file" />
+          <input type="file" onChange={ctaImageHandler} />
+        </div>
       </div>
 
-      </div>
-      
       {/* <div className="my-inner-qrbtn">
         <BlueButton txt="QR Code" cta={ctaQrHandler} />
       </div> */}

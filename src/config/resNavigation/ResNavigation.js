@@ -26,9 +26,9 @@ function ResNavigation() {
       <Route exact path="/auth/signup">
         <ResSignUp />
       </Route>
-      <PrivateNavigation exact path="/addRestaurent" auth={authState}>
+      {/* <PrivateNavigation exact path="/addRestaurent" auth={authState}> */}
         <Home />
-      </PrivateNavigation>
+      {/* </PrivateNavigation> */}
     </Switch>
   );
 }

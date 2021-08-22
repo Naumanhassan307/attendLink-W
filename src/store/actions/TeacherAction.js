@@ -8,24 +8,50 @@ import {
   FETCH_Total_TEACHER,
 } from "../TypeConstant";
 
-import { db } from "../../config/firebase/Firebase";
+import { db , storage} from "../../config/firebase/Firebase";
+import { useState } from "react";
 
 
-export const AddTeacherAct = (data) => async (dispatch) =>{
+export const AddTeacherAct = (data, img) => async (dispatch) =>{
    
+  var imgUrl = ""
+   console.log("image is running..", img);
+   const uploadTask = storage.ref(`images/${img.name}`).put(img);
+   uploadTask.on(
+     "state changed",
+     (snapshot) => {},
+     (error) => {
+       console.log("Error", error);
+     },
+     () => {
+       storage
+         .ref("images")
+         .child(img.name)
+         .getDownloadURL()
+         .then((url) => {
+           console.log("URL IS =>", url);
+           imgUrl = url
+         });
+     }
+   );
+   
+   
+
+console.log("img in add act",imgUrl);
 console.log("data in add act",data);
-    try {
-      let res = await db.collection("AddTeacher").add(data);
-      console.log("response ", await res); 
+  
+    // try {
+    //   let res = await db.collection("AddRestaurent").add(data);
+    //   console.log("response ", await res); 
       
-      dispatch({
-        type: ADD_TEACHER,
-        payload: data,
-      });
+    //   dispatch({
+    //     type: ADD_TEACHER,
+    //     payload: data,
+    //   });
       
-    } catch (error) {
-      console.log("Error in add data", error);
-    }
+    // } catch (error) {
+    //   console.log("Error in add data", error);
+    // }
 }
 
 
@@ -136,4 +162,27 @@ export const DelTeacherAct = (data, tchDocId, tchName) => async (dispatch) =>{
 
 
     
+
+    
 }
+
+export const ImageUpload = (img) => async (dispatch) => {
+  console.log("image is running..", img);
+  const uploadTask = storage.ref(`images/${img.name}`).put(img);
+  uploadTask.on(
+    "state changed",
+    (snapshot) => {},
+    (error) => {
+      console.log("Error", error);
+    },
+    () => {
+      storage
+        .ref("images")
+        .child(img.name)
+        .getDownloadURL()
+        .then((url) => {
+          console.log("URL IS =>", url);
+        });
+    }
+  );
+};

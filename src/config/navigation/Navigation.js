@@ -14,8 +14,8 @@ import Logout from "../../auth/logout/LogOut";
 
 function Navigation() {
 
-  // const authState = useSelector((store) => store.AuthReducer.isLogIn);
-  // console.log("state is", authState);
+  const authState = useSelector((store) => store.AuthReducer.isLogIn);
+  console.log("state is", authState);
 
   // const authState = true;
  
@@ -24,12 +24,12 @@ function Navigation() {
       
       
 
-      <Route exact path="/addRestaurent" >
+      <PrivateNavigation exact path="/addRestaurent" auth={authState}>
         <AddTeacher />
-      </Route>
-      <Route exact path="/allrecords" >
+      </PrivateNavigation>
+      <PrivateNavigation exact path="/allrecords" auth={authState}>
         <DeleteUpdate />
-      </Route>
+      </PrivateNavigation>
       
 
       {/* <PublicNavigation exact path="/auth" auth={authState}>
